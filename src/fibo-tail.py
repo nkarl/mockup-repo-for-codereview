@@ -1,11 +1,15 @@
+# Helper function, that uses a buffer to prevent an overflow
+def fibo(i, prev, curr, buf):
+    if i == 0:
+        return buf
+    else:
+        return fibo(i-1, curr, prev+curr, prev+curr)
+
+# Starter function
 def fib(n):
-    if n==0:
-        return 0
-    if n==1:
-        return 1
-    return fib(n-1) + fib(n-2)
+    return fibo(n, 0, 1, 0)
 
-
+# Manual tests
 aa = fib(3)
 print(f"result: {aa}")
 bb = fib(5)
